@@ -1,0 +1,23 @@
+{
+  "name": "POP_Exercise",
+  "version": "1.0.0",
+  "description": "### Exercise to test and consolidate the understanding of Prototypal Oriented Programming.",
+  "main": "pop_exercise.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eofafrica4lyf/POP_Exercise.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eofafrica4lyf/POP_Exercise/issues"
+  },
+  "homepage": "https://github.com/eofafrica4lyf/POP_Exercise#readme",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  }
+}
