@@ -80,9 +80,15 @@ describe('The User Object ',()=>{
         // console.log(db.users[userI.id-1].user_name);
     }); 
     it('is able to update his email',()=>{
-        console.log(db.users[userI.id-1].email);
+        // console.log(db.users[userI.id-1].email);
         userI.updateEmail('AnotherEmail');
         expect(db.users[userI.id-1].email).toBe('AnotherEmail');
-        console.log(db.users[userI.id-1].email);
+        // console.log(db.users[userI.id-1].email);
+    }); 
+    it('is able to update his password',()=>{
+        console.log(db.users[userI.id-1].password);
+        userI.updatePassword('AnotherPassword');
+        expect(db.users[userI.id-1].password).toBe('AnotherPassword');
+        console.log(db.users[userI.id-1].password);
     }); 
 });
