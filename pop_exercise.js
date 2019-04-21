@@ -30,7 +30,9 @@ User.prototype.getUser = function(ID){
     
     
 }
-
+User.prototype.getUsers = function(){
+    return db.users;
+}
 
 
 
