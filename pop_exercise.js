@@ -14,7 +14,13 @@ User.prototype = User;
 User.prototype.id = this.id + 1;
 // 
 User.prototype.getUser = function(ID){
-    return db.users[ID-1];
+    if(typeof(ID) !== 'number' ){
+        return 'Invalid ID parameter was passed';
+    }
+    else{
+        return db.users[ID-1];
+    }   
+    
 }
 
 
