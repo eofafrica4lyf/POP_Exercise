@@ -67,7 +67,12 @@ User.prototype.updatePassword = function(otherPassword){
 }
 //Object prototype method to delete single user(by their ID)
 User.prototype.deleteUser = function (id){
-    db.users.splice(id-1,1);
+    // db.users.splice(id-1,1);
+    if(this.isAdmin){
+        return db.users.splice(id-1,1);
+    }else{
+        return 'You do not have enough privileges';
+    }
 }
 
 
