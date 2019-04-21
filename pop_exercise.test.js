@@ -74,13 +74,15 @@ describe('The User Object ',()=>{
 });
 describe('The User Object ',()=>{
     it('is able to update his user_name',()=>{
+        // console.log(db.users[userI.id-1].user_name);
         userI.updateUserName('Another Name');
-        console.log(userI);
-        console.log(db);
         expect(db.users[userI.id-1].user_name).toBe('Another Name');
         // console.log(db.users[userI.id-1].user_name);
     }); 
-    // it('is read to return all users by an ordinary user',()=>{
-    //    expect(userII.getUsers()).toEqual('You do not have enough privileges');
-    // }); 
+    it('is able to update his email',()=>{
+        console.log(db.users[userI.id-1].email);
+        userI.updateEmail('AnotherEmail');
+        expect(db.users[userI.id-1].email).toBe('AnotherEmail');
+        console.log(db.users[userI.id-1].email);
+    }); 
 });
