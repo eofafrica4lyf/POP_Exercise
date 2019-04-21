@@ -1,5 +1,5 @@
 const User = require('./pop_exercise');
-
+const db = require('./db');
 
 var ex1 = {user_name: "Name",email: "email",password: "password",id: 1};
 var ex2 = {user_name: "Name",email: "email",password: "password",id: 2};
@@ -17,9 +17,10 @@ describe('The User Object ',()=>{
     }); 
 });
 describe('The User Object ',()=>{
-    it('writes into the database and stores user data',()=>{
-        let userI = new User('Name','email','password');
-        expect(db.users[0].user_name).toEqual('Name')
+    it('has written into the database and has stored userI data',()=>{
+        expect(db.users[0].user_name).toEqual('Name');
+    }); 
+    it('has written into the database and has stored userII data',()=>{
+        expect(db.users[1].id).toEqual(2);
     }); 
 });
-

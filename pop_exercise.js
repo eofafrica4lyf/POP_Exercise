@@ -1,5 +1,4 @@
-
-
+const db = require('./db');
 
 global.counter = 1;
 let User = function(user_name,email,password){
@@ -8,6 +7,8 @@ let User = function(user_name,email,password){
     this.password = password;
     this.id = global.counter;
     global.counter++;
+    // store user data in database
+    db.users.push(this);
 }
 User.prototype = User;
 User.prototype.id = this.id + 1;
@@ -18,4 +19,3 @@ User.prototype.id = this.id + 1;
 
 module.exports = User;
 // exports.User = User;
-
