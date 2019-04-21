@@ -51,6 +51,13 @@ User.prototype.updateUserName = function(otherName){
     // Update the object
     return this.user_name = otherName;
 }
+// Object prototype method to update user email
+User.prototype.updateEmail = function(otherEmail){
+    //Update Database first
+    db.users[this.id-1].email = otherEmail;
+    // Update the object
+    return this.email = otherEmail;
+}
 
 
 
