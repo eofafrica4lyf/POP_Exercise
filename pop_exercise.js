@@ -1,5 +1,4 @@
-// const db = require('./db');
-
+const db = require('./db');
 
 global.counter = 1;
 let User = function(user_name,email,password){
@@ -8,19 +7,8 @@ let User = function(user_name,email,password){
     this.password = password;
     this.id = global.counter;
     global.counter++;
-    // this.id = count;
-    // count++;
-    // console.log(db);
-    // db.users.push(this);
-    // db.users.push({
-    //     user_name: "Name",
-    //     email: "email",
-    //     password: "password",
-    //     id: 1
-    // });
-    // console.log(db.users);
-    console.log(this);
-    // return this;
+    // store user data in database
+    db.users.push(this);
 }
 User.prototype = User;
 User.prototype.id = this.id + 1;
