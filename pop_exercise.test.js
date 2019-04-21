@@ -97,9 +97,9 @@ describe('(Update the details of a user)(***)The User ',()=>{
     }); 
 });
 //Delete a user (*)
-describe('(Delete a user (*))(***)The Admin User ',()=>{
-    it('is able to delete a user',()=>{
-        console.log(db.users);
+describe('(Delete a user (*))(***)A User ',()=>{
+    it('who is an ADMIN is able to delete a user',()=>{
+        // console.log(db.users);
         userI.deleteUser(3);
         expect(db.users).toEqual([{
             user_name: 'Another Name',
@@ -113,6 +113,12 @@ describe('(Delete a user (*))(***)The Admin User ',()=>{
             password: 'password',
             id: 2,
             isAdmin: false } ]);
-        console.log(db.users);
+        // console.log(db.users);
+    }); 
+    it('who is an ordinary user is unable to delete a user',()=>{
+        // console.log(db.users);
+        userII.deleteUser(3);
+        expect(db.users).toEqual('You do not have enough privileges');
+        // console.log(db.users);
     }); 
 });
