@@ -23,6 +23,20 @@ describe('(Create a new User)(***)The User Object ',()=>{
         // console.log(userIII);
     }); 
 });
+//Search for a user by his name and return false if the user is not found
+//but returns the user object if the user is found.
+describe('(Search for a user by his name, ',()=>{
+    it('return the user object if the name is found',()=>{
+        // console.log(db.users);
+        expect( User.searchForUser('Foluso') ).toEqual({user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3,isAdmin: false});
+        // console.log(db.users);
+    });
+    // it('who is an ordinary user is unable to delete a user',()=>{
+    //     // console.log(db.users);
+    //     expect(userIII.deleteAllUser()).toEqual('You do not have enough privileges');
+    //     // console.log(db.users);
+    // }); 
+    });
 //Confirm database write
 describe('(Confirm database write)(***)The User Object ',()=>{
     it('has written into the database and has stored userI data',()=>{
@@ -129,18 +143,4 @@ describe('(Delete all users (*))(***)A User ',()=>{
         expect(userIII.deleteAllUser()).toEqual('You do not have enough privileges');
         // console.log(db.users);
     }); 
-});
-//Search for a user by his name and return false if the user is not found
-//but returns the user object if the user is found.
-describe('(Search for a user by his name, ',()=>{
-    it('return the user object if the name is found',()=>{
-        // console.log(db.users);
-        expect( User.searchForUser('Emmanuel') ).toEqual({user_name: "Emmanuel",email: "aboderinemmanuel@gmail.com",password: "qwerty",id: 1,isAdmin: true});
-        // console.log(db.users);
-    }); 
-    // it('who is an ordinary user is unable to delete a user',()=>{
-    //     // console.log(db.users);
-    //     expect(userIII.deleteAllUser()).toEqual('You do not have enough privileges');
-    //     // console.log(db.users);
-    // }); 
 });

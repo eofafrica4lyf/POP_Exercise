@@ -77,15 +77,23 @@ User.prototype.deleteUser = function (id){
 //Object prototype method to delete all users
 User.prototype.deleteAllUser = function (){
     if(this.isAdmin){
-    return db.users.splice(0,db.users.length);
-}else{
-    return 'You do not have enough privileges';
+        return db.users.splice(0,db.users.length);
+    }else{
+        return 'You do not have enough privileges';
+    }
+};
+//Object prototype method to search for a user by his name
+// and return false if the user is not found but return
+//the user object if the user is found.
+User.prototype.searchForUser  = function (userName){
+    let index = db.users;
+    console.log(index);
+    for(var i = 0;i < index.length; i++){
+        if (db.users[i].user_name == userName){
+            return db.users[i];
+        }
+    }
 }
-}
-// db.users.splice(id-1,1);
-
-
-
 // User('Name','email','password');
 // User();
 
