@@ -44,7 +44,13 @@ User.prototype.getUsers = function(){
     }
     
 };
-
+// Object prototype method to update user_name
+User.prototype.updateUserName = function(otherName){
+    //Update Database first
+    db.users[this.id-1].user_name = otherName;
+    // Update the object
+    return this.user_name = otherName;
+}
 
 
 
