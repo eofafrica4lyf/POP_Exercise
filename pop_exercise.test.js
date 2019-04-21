@@ -130,7 +130,7 @@ describe('(Delete a user (*))(***)A User ',()=>{
     }); 
     it('who is an ordinary user is unable to delete a user',()=>{
         // console.log(db.users);
-        expect(userI.deleteAllUser()).toEqual('You do not have enough privileges');
+        expect(userIII.deleteAllUser()).toEqual('You do not have enough privileges');
         // console.log(db.users);
     }); 
 });

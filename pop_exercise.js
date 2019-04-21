@@ -76,8 +76,13 @@ User.prototype.deleteUser = function (id){
 }
 //Object prototype method to delete all users
 User.prototype.deleteAllUser = function (){
-    return db.users.splice(0,db.users.length)
+    if(this.isAdmin){
+    return db.users.splice(0,db.users.length);
+}else{
+    return 'You do not have enough privileges';
 }
+}
+// db.users.splice(id-1,1);
 
 
 
