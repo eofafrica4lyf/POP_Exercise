@@ -58,6 +58,13 @@ User.prototype.updateEmail = function(otherEmail){
     // Update the object
     return this.email = otherEmail;
 }
+// Object prototype method to update user password
+User.prototype.updatePassword = function(otherPassword){
+    //Update Database first
+    db.users[this.id-1].password = otherPassword;
+    // Update the object
+    return this.password = otherPassword;
+}
 
 
 
