@@ -124,24 +124,8 @@ describe('(Delete a user (*))(***)A User ',()=>{
 describe('(Delete a user (*))(***)A User ',()=>{
     it('who is an ADMIN is able to delete a user',()=>{
         // console.log(db.users);
-        userI.deleteUser(3);
-        expect(db.users).toEqual([{
-            user_name: 'Another Name',
-            email: 'AnotherEmail',
-            password: 'AnotherPassword',
-            id: 1,
-            isAdmin: true },
-           {
-            user_name: 'Name',
-            email: 'email',
-            password: 'password',
-            id: 2,
-            isAdmin: false } ]);
-        // console.log(db.users);
-    }); 
-    it('who is an ordinary user is unable to delete a user',()=>{
-        // console.log(db.users);
-        expect(userII.deleteUser(3)).toEqual('You do not have enough privileges');
+        userI.deleteAllUser();
+        expect(db.users).toEqual([]);
         // console.log(db.users);
     }); 
 });
