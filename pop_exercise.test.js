@@ -59,10 +59,10 @@ describe('The User Object ',()=>{
        expect(User.getUser(2,3)).toEqual('Invalid number of parameters was passed');
     }); 
 });
-// describe('The User Object ',()=>{
-//     it('is read to return all users by an ADMIN user',()=>{
-//        expect(User.getUsers()).toEqual([ Function { user_name: 'Name', email: 'email', password: 'password', id: 1 },
-//        Function { user_name: 'Name', email: 'email', password: 'password', id: 2 },
-//        Function { user_name: 'Name', email: 'email', password: 'password', id: 3 } ]);
-//     }); 
-// });
+describe('The User Object ',()=>{
+    it('is read to return all users by an ADMIN user',()=>{
+       expect(User.getUsers()).toEqual([ { user_name: 'Name', email: 'email', password: 'password', id: 1 },
+       { user_name: 'Name', email: 'email', password: 'password', id: 2 },
+       { user_name: 'Name', email: 'email', password: 'password', id: 3 } ]);
+    }); 
+});

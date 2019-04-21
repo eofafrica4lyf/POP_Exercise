@@ -32,6 +32,9 @@ User.prototype.getUser = function(ID){
 }
 
 
+
+
+
 // User('Name','email','password');
 // User();
 
