@@ -24,3 +24,8 @@ describe('The User Object ',()=>{
         expect(db.users[1].id).toEqual(2);
     }); 
 });
+describe('The User Object ',()=>{
+    it('reads a user from the database using his ID',()=>{
+       expect(User.getUser(1)).toEqual({user_name: "Name",email: "email",password: "password",id: 1});
+    }); 
+});
