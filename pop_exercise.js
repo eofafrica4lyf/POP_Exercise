@@ -12,6 +12,9 @@ let User = function(user_name,email,password){
 }
 User.prototype = User;
 User.prototype.id = this.id + 1;
+User.getUser = function(ID){
+    return db.users[ID-1];
+}
 
 
 // User('Name','email','password');
