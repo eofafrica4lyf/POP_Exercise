@@ -43,11 +43,14 @@ describe('The User Object ',()=>{
     //    console.log('User.getUser(2)');
     //    console.log(User.getUser(2));
     }); 
-    it('returns an error when an invalid parameter is passed',()=>{
+    it('returns an error when an invalid parameter(string) is passed',()=>{
        expect(User.getUser('3')).toEqual('Invalid ID parameter was passed');
     }); 
-    it('returns an error when an invalid parameter is passed',()=>{
+    it('returns an error when an invalid parameter(NaN) is passed',()=>{
        expect(User.getUser(NaN)).toEqual('Invalid ID parameter was passed');
+    }); 
+    it('returns an error when an invalid parameter(Infinity) is passed',()=>{
+       expect(User.getUser(Infinity)).toEqual('Invalid ID parameter was passed');
     }); 
 });
 // describe('The User Object ',()=>{
