@@ -27,7 +27,7 @@ describe('The User Object ',()=>{
     it('has written into the database and has stored userI data',()=>{
         expect(db.users[0].user_name).toEqual('Name');
         // console.log('db');
-        console.log(db);
+        // console.log(db);
     }); 
     it('has written into the database and has stored userII data',()=>{
         expect(db.users[1].id).toEqual(2);
@@ -65,8 +65,22 @@ describe('The User Object ',()=>{
        expect(userI.getUsers()).toEqual([ { user_name: 'Name', email: 'email', password: 'password', id: 1,isAdmin: true },
        { user_name: 'Name', email: 'email', password: 'password', id: 2,isAdmin: false },
        { user_name: 'Name', email: 'email', password: 'password', id: 3,isAdmin: false } ]);
+    //    console.log(userI.getUsers());
     }); 
     it('is read to return all users by an ordinary user',()=>{
        expect(userII.getUsers()).toEqual('You do not have enough privileges');
+    //    console.log(userII.getUsers());
     }); 
+});
+describe('The User Object ',()=>{
+    it('is able to update his user_name',()=>{
+        userI.updateUserName('Another Name');
+        console.log(userI);
+        console.log(db);
+        expect(db.users[userI.id-1].user_name).toBe('Another Name');
+        // console.log(db.users[userI.id-1].user_name);
+    }); 
+    // it('is read to return all users by an ordinary user',()=>{
+    //    expect(userII.getUsers()).toEqual('You do not have enough privileges');
+    // }); 
 });
