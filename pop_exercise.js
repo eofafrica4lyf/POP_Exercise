@@ -14,7 +14,7 @@ User.prototype = User;
 User.prototype.id = this.id + 1;
 // 
 User.prototype.getUser = function(ID){
-    if( (typeof(ID) !== 'number') || ID === Infinity){
+    if( (typeof(ID) !== 'number') || ID === Infinity || ID === -Infinity){
 
         return 'Invalid ID parameter was passed';
     }else if( isNaN(ID)){
