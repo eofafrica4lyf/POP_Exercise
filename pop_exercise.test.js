@@ -52,6 +52,9 @@ describe('The User Object ',()=>{
     it('returns an error when an invalid parameter(Infinity) is passed',()=>{
        expect(User.getUser(Infinity)).toEqual('Invalid ID parameter was passed');
     }); 
+    it('returns an error when an invalid parameter(Infinity) is passed',()=>{
+       expect(User.getUser(-Infinity)).toEqual('Invalid ID parameter was passed');
+    }); 
 });
 // describe('The User Object ',()=>{
 //     it('is read to return all users by an ADMIN user',()=>{
