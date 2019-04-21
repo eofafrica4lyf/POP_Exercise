@@ -52,8 +52,11 @@ describe('The User Object ',()=>{
     it('returns an error when an invalid parameter(Infinity) is passed',()=>{
        expect(User.getUser(Infinity)).toEqual('Invalid ID parameter was passed');
     }); 
-    it('returns an error when an invalid parameter(Infinity) is passed',()=>{
+    it('returns an error when an invalid parameter(-Infinity) is passed',()=>{
        expect(User.getUser(-Infinity)).toEqual('Invalid ID parameter was passed');
+    }); 
+    it('returns an error when an invalid number of parameters are passed',()=>{
+       expect(User.getUser(2,3)).toEqual('Invalid number of parameters was passed');
     }); 
 });
 // describe('The User Object ',()=>{
