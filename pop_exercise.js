@@ -14,7 +14,10 @@ User.prototype = User;
 User.prototype.id = this.id + 1;
 // 
 User.prototype.getUser = function(ID){
-    if(typeof(ID) !== 'number' ){
+    if( (typeof(ID) !== 'number') ){
+
+        return 'Invalid ID parameter was passed';
+    }else if( isNaN(ID)){
         return 'Invalid ID parameter was passed';
     }
     else{
