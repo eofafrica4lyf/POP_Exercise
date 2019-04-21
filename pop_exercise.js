@@ -14,15 +14,20 @@ User.prototype = User;
 User.prototype.id = this.id + 1;
 // 
 User.prototype.getUser = function(ID){
-    if( (typeof(ID) !== 'number') || ID === Infinity || ID === -Infinity){
+    if(arguments.length > 1){
+        return 'Invalid number of parameters was passed';
+    }else{
+        if( (typeof(ID) !== 'number') || ID === Infinity || ID === -Infinity){
 
-        return 'Invalid ID parameter was passed';
-    }else if( isNaN(ID)){
-        return 'Invalid ID parameter was passed';
+            return 'Invalid ID parameter was passed';
+        }else if( isNaN(ID)){
+            return 'Invalid ID parameter was passed';
+        }
+        else{
+            return db.users[ID-1];
+        }   
     }
-    else{
-        return db.users[ID-1];
-    }   
+    
     
 }
 
