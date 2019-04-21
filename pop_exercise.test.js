@@ -5,12 +5,13 @@ var ex1 = {user_name: "Name",email: "email",password: "password",id: 1,isAdmin: 
 var ex2 = {user_name: "Name",email: "email",password: "password",id: 2,isAdmin: false};
 var ex3 = {user_name: "Name",email: "email",password: "password",id: 3,isAdmin: false};
 
+let userI = new User('Name','email','password', true);
+        let userII = new User('Name','email','password', false);
+        let userIII = new User('Name','email','password', false);
 
 describe('The User Object ',()=>{
     it('creates new users with properties and auto-increments the ID',()=>{
-        let userI = new User('Name','email','password', true);
-        let userII = new User('Name','email','password', false);
-        let userIII = new User('Name','email','password', false);
+        
         expect(userI).toEqual(ex1);
         expect(userII).toEqual(ex2);
         expect(userIII).toEqual(ex3);
@@ -61,8 +62,11 @@ describe('The User Object ',()=>{
 });
 describe('The User Object ',()=>{
     it('is read to return all users by an ADMIN user',()=>{
-       expect(User.getUsers()).toEqual([ { user_name: 'Name', email: 'email', password: 'password', id: 1,isAdmin: true },
+       expect(userI.getUsers()).toEqual([ { user_name: 'Name', email: 'email', password: 'password', id: 1,isAdmin: true },
        { user_name: 'Name', email: 'email', password: 'password', id: 2,isAdmin: false },
        { user_name: 'Name', email: 'email', password: 'password', id: 3,isAdmin: false } ]);
+    }); 
+    it('is read to return all users by an ordinary user',()=>{
+       expect(userII.getUsers()).toEqual('You do not have enough privileges');
     }); 
 });
