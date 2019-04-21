@@ -37,7 +37,12 @@ User.prototype.getUser = function(ID){
     
 }
 User.prototype.getUsers = function(){
-    return db.users;
+    if(this.isAdmin){
+        return db.users;
+    }else {
+        return 'You do not have enough privileges';
+    }
+    
 }
 
 
