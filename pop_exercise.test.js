@@ -45,8 +45,9 @@ describe('The User Object ',()=>{
     }); 
     it('returns an error when an invalid parameter is passed',()=>{
        expect(User.getUser('3')).toEqual('Invalid ID parameter was passed');
-    //    console.log('User.getUser(2)');
-    //    console.log(User.getUser(2));
+    }); 
+    it('returns an error when an invalid parameter is passed',()=>{
+       expect(User.getUser(NaN)).toEqual('Invalid ID parameter was passed');
     }); 
 });
 // describe('The User Object ',()=>{
