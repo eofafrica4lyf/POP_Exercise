@@ -1,13 +1,13 @@
 const User = require('./pop_exercise');
 const db = require('./db');
 
-var ex1 = {user_name: "Name",email: "email",password: "password",id: 1,isAdmin: true};
-var ex2 = {user_name: "Name",email: "email",password: "password",id: 2,isAdmin: false};
-var ex3 = {user_name: "Name",email: "email",password: "password",id: 3,isAdmin: false};
+var ex1 = {user_name: "Emmanuel",email: "aboderinemmanuel@gmail.com",password: "qwerty",id: 1,isAdmin: true};
+var ex2 = {user_name: "Maranatha",email: "aboderinmaranatha@gmail.com",password: "qwertyu",id: 2,isAdmin: false};
+var ex3 = {user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3,isAdmin: false};
 
-let userI = new User('Name','email','password', true);
-        let userII = new User('Name','email','password', false);
-        let userIII = new User('Name','email','password', false);
+let userI = new User('Emmanuel','aboderinemmanuel@gmail.com','qwerty', true);
+        let userII = new User('Maranatha','aboderinmaranatha@gmail.com','qwertyu', false);
+        let userIII = new User('Foluso','aboderinfoluso@gmail.com','qwertyui', false);
 //Create a new User
 describe('(Create a new User)(***)The User Object ',()=>{
     it('creates new users with properties and auto-increments the ID',()=>{
@@ -26,7 +26,7 @@ describe('(Create a new User)(***)The User Object ',()=>{
 //Confirm database write
 describe('(Confirm database write)(***)The User Object ',()=>{
     it('has written into the database and has stored userI data',()=>{
-        expect(db.users[0].user_name).toEqual('Name');
+        expect(db.users[0].user_name).toEqual('Emmanuel');
         // console.log('db');
         // console.log(db);
     }); 
@@ -37,12 +37,12 @@ describe('(Confirm database write)(***)The User Object ',()=>{
 //Read a single user by his ID
 describe('(Read a single user by his ID)(***)The database ',()=>{
     it('returns the info of a single user using the User\'s ID',()=>{
-       expect(User.getUser(1)).toEqual({user_name: "Name",email: "email",password: "password",id: 1,isAdmin: true});
+       expect(User.getUser(1)).toEqual({user_name: "Emmanuel",email: "aboderinemmanuel@gmail.com",password: "qwerty",id: 1,isAdmin: true});
     //    console.log('User.getUser(1)');
     //    console.log(User.getUser(1));
     }); 
     it('returns the info of a single user using the User\'s ID',()=>{
-       expect(User.getUser(3)).toEqual({user_name: "Name",email: "email",password: "password",id: 3,isAdmin: false});
+       expect(User.getUser(3)).toEqual({user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3,isAdmin: false});
     //    console.log('User.getUser(2)');
     //    console.log(User.getUser(2));
     }); 
@@ -65,9 +65,9 @@ describe('(Read a single user by his ID)(***)The database ',()=>{
 //Read all users (*)
 describe('(Read all users (*))(***)The database ',()=>{
     it('is read to return all users by an ADMIN user',()=>{
-       expect(userI.getUsers()).toEqual([ { user_name: 'Name', email: 'email', password: 'password', id: 1,isAdmin: true },
-       { user_name: 'Name', email: 'email', password: 'password', id: 2,isAdmin: false },
-       { user_name: 'Name', email: 'email', password: 'password', id: 3,isAdmin: false } ]);
+       expect(userI.getUsers()).toEqual([ {user_name: "Emmanuel",email: "aboderinemmanuel@gmail.com",password: "qwerty",id: 1,isAdmin: true},
+       {user_name: "Maranatha",email: "aboderinmaranatha@gmail.com",password: "qwertyu",id: 2,isAdmin: false},
+       {user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3,isAdmin: false} ]);
     //    console.log(userI.getUsers());
     }); 
     it('is read to return all users by an ordinary user',()=>{
@@ -107,12 +107,7 @@ describe('(Delete a user (*))(***)A User ',()=>{
             password: 'AnotherPassword',
             id: 1,
             isAdmin: true },
-           {
-            user_name: 'Name',
-            email: 'email',
-            password: 'password',
-            id: 2,
-            isAdmin: false } ]);
+            {user_name: "Maranatha",email: "aboderinmaranatha@gmail.com",password: "qwertyu",id: 2,isAdmin: false} ]);
         // console.log(db.users);
     }); 
     it('who is an ordinary user is unable to delete a user',()=>{
@@ -121,7 +116,8 @@ describe('(Delete a user (*))(***)A User ',()=>{
         // console.log(db.users);
     }); 
 });
-describe('(Delete a user (*))(***)A User ',()=>{
+//Delete all users (*)
+describe('(Delete all users (*))(***)A User ',()=>{
     it('who is an ADMIN is able to delete a user',()=>{
         // console.log(db.users);
         userI.deleteAllUser();
@@ -133,4 +129,18 @@ describe('(Delete a user (*))(***)A User ',()=>{
         expect(userIII.deleteAllUser()).toEqual('You do not have enough privileges');
         // console.log(db.users);
     }); 
+});
+//Search for a user by his name and return false if the user is not found
+//but returns the user object if the user is found.
+describe('(Search for a user by his name, ',()=>{
+    it('return the user object if the name is found',()=>{
+        // console.log(db.users);
+        expect( User.searchForUser('Emmanuel') ).toEqual({user_name: "Emmanuel",email: "aboderinemmanuel@gmail.com",password: "qwerty",id: 1,isAdmin: true});
+        // console.log(db.users);
+    }); 
+    // it('who is an ordinary user is unable to delete a user',()=>{
+    //     // console.log(db.users);
+    //     expect(userIII.deleteAllUser()).toEqual('You do not have enough privileges');
+    //     // console.log(db.users);
+    // }); 
 });
