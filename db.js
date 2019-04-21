@@ -1,4 +1,7 @@
-let records = {
-    users: []
+let db = {
+    users: [
+
+    ]
 }
 
+module.exports = db;
