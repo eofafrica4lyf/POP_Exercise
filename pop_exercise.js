@@ -65,7 +65,10 @@ User.prototype.updatePassword = function(otherPassword){
     // Update the object
     return this.password = otherPassword;
 }
-
+//Object prototype method to delete single user(by their ID)
+User.prototype.deleteUser = function (id){
+    db.users.splice(id-1,1);
+}
 
 
 // User('Name','email','password');
