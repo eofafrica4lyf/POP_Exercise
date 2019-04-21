@@ -8,8 +8,8 @@ var ex3 = {user_name: "Name",email: "email",password: "password",id: 3,isAdmin: 
 let userI = new User('Name','email','password', true);
         let userII = new User('Name','email','password', false);
         let userIII = new User('Name','email','password', false);
-
-describe('The User Object ',()=>{
+//Create a new User
+describe('(Create a new User)(***)The User Object ',()=>{
     it('creates new users with properties and auto-increments the ID',()=>{
         
         expect(userI).toEqual(ex1);
@@ -23,7 +23,8 @@ describe('The User Object ',()=>{
         // console.log(userIII);
     }); 
 });
-describe('The User Object ',()=>{
+//Confirm database write
+describe('(Confirm database write)(***)The User Object ',()=>{
     it('has written into the database and has stored userI data',()=>{
         expect(db.users[0].user_name).toEqual('Name');
         // console.log('db');
@@ -33,34 +34,36 @@ describe('The User Object ',()=>{
         expect(db.users[1].id).toEqual(2);
     }); 
 });
-describe('The User Object ',()=>{
-    it('reads a user from the database using his ID',()=>{
+//Read a single user by his ID
+describe('(Read a single user by his ID)(***)The database ',()=>{
+    it('returns the info of a single user using the User\'s ID',()=>{
        expect(User.getUser(1)).toEqual({user_name: "Name",email: "email",password: "password",id: 1,isAdmin: true});
     //    console.log('User.getUser(1)');
     //    console.log(User.getUser(1));
     }); 
-    it('reads a user from the database using his ID',()=>{
+    it('returns the info of a single user using the User\'s ID',()=>{
        expect(User.getUser(3)).toEqual({user_name: "Name",email: "email",password: "password",id: 3,isAdmin: false});
     //    console.log('User.getUser(2)');
     //    console.log(User.getUser(2));
     }); 
-    it('returns an error when an invalid parameter(string) is passed',()=>{
+    it('returns an error when an invalid parameter(string) is passed in order to retrieve a user\'info',()=>{
        expect(User.getUser('3')).toEqual('Invalid ID parameter was passed');
     }); 
-    it('returns an error when an invalid parameter(NaN) is passed',()=>{
+    it('returns an error when an invalid parameter(NaN) is passed in order to retrieve a user\'info',()=>{
        expect(User.getUser(NaN)).toEqual('Invalid ID parameter was passed');
     }); 
-    it('returns an error when an invalid parameter(Infinity) is passed',()=>{
+    it('returns an error when an invalid parameter(Infinity) is passed in order to retrieve a user\'info',()=>{
        expect(User.getUser(Infinity)).toEqual('Invalid ID parameter was passed');
     }); 
-    it('returns an error when an invalid parameter(-Infinity) is passed',()=>{
+    it('returns an error when an invalid parameter(-Infinity) is passed in order to retrieve a user\'info',()=>{
        expect(User.getUser(-Infinity)).toEqual('Invalid ID parameter was passed');
     }); 
-    it('returns an error when an invalid number of parameters are passed',()=>{
+    it('returns an error when an invalid number of parameters are passed in order to retrieve a user\'info',()=>{
        expect(User.getUser(2,3)).toEqual('Invalid number of parameters was passed');
     }); 
 });
-describe('The User Object ',()=>{
+//Read all users (*)
+describe('(Read all users (*))(***)The database ',()=>{
     it('is read to return all users by an ADMIN user',()=>{
        expect(userI.getUsers()).toEqual([ { user_name: 'Name', email: 'email', password: 'password', id: 1,isAdmin: true },
        { user_name: 'Name', email: 'email', password: 'password', id: 2,isAdmin: false },
@@ -72,7 +75,8 @@ describe('The User Object ',()=>{
     //    console.log(userII.getUsers());
     }); 
 });
-describe('The User Object ',()=>{
+//Update the details of a user
+describe('(Update the details of a user)(***)The User ',()=>{
     it('is able to update his user_name',()=>{
         // console.log(db.users[userI.id-1].user_name);
         userI.updateUserName('Another Name');
@@ -86,9 +90,29 @@ describe('The User Object ',()=>{
         // console.log(db.users[userI.id-1].email);
     }); 
     it('is able to update his password',()=>{
-        console.log(db.users[userI.id-1].password);
+        // console.log(db.users[userI.id-1].password);
         userI.updatePassword('AnotherPassword');
         expect(db.users[userI.id-1].password).toBe('AnotherPassword');
-        console.log(db.users[userI.id-1].password);
+        // console.log(db.users[userI.id-1].password);
+    }); 
+});
+//Delete a user (*)
+describe('(Delete a user (*))(***)The Admin User ',()=>{
+    it('is able to delete a user',()=>{
+        console.log(db.users);
+        userI.deleteUser(3);
+        expect(db.users).toEqual([{
+            user_name: 'Another Name',
+            email: 'AnotherEmail',
+            password: 'AnotherPassword',
+            id: 1,
+            isAdmin: true },
+           {
+            user_name: 'Name',
+            email: 'email',
+            password: 'password',
+            id: 2,
+            isAdmin: false } ]);
+        console.log(db.users);
     }); 
 });
