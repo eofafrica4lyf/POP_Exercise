@@ -1,11 +1,17 @@
 const db = require('./db');
 
 global.counter = 1;
-let User = function(user_name,email,password){
+let User = function(user_name,email,password, adminStatus){
     this.user_name = user_name;
     this.email = email;
     this.password = password;
     this.id = global.counter;
+    if(adminStatus){
+        this.isAdmin = true;
+    }
+    else{
+        this.isAdmin = false;
+    }
     global.counter++;
     // store user data in database
     db.users.push(this);

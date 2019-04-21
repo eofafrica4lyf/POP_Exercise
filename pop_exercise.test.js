@@ -1,16 +1,16 @@
 const User = require('./pop_exercise');
 const db = require('./db');
 
-var ex1 = {user_name: "Name",email: "email",password: "password",id: 1};
-var ex2 = {user_name: "Name",email: "email",password: "password",id: 2};
-var ex3 = {user_name: "Name",email: "email",password: "password",id: 3};
+var ex1 = {user_name: "Name",email: "email",password: "password",id: 1,isAdmin: true};
+var ex2 = {user_name: "Name",email: "email",password: "password",id: 2,isAdmin: false};
+var ex3 = {user_name: "Name",email: "email",password: "password",id: 3,isAdmin: false};
 
 
 describe('The User Object ',()=>{
     it('creates new users with properties and auto-increments the ID',()=>{
-        let userI = new User('Name','email','password');
-        let userII = new User('Name','email','password');
-        let userIII = new User('Name','email','password');
+        let userI = new User('Name','email','password', true);
+        let userII = new User('Name','email','password', false);
+        let userIII = new User('Name','email','password', false);
         expect(userI).toEqual(ex1);
         expect(userII).toEqual(ex2);
         expect(userIII).toEqual(ex3);
@@ -34,12 +34,12 @@ describe('The User Object ',()=>{
 });
 describe('The User Object ',()=>{
     it('reads a user from the database using his ID',()=>{
-       expect(User.getUser(1)).toEqual({user_name: "Name",email: "email",password: "password",id: 1});
+       expect(User.getUser(1)).toEqual({user_name: "Name",email: "email",password: "password",id: 1,isAdmin: true});
     //    console.log('User.getUser(1)');
     //    console.log(User.getUser(1));
     }); 
     it('reads a user from the database using his ID',()=>{
-       expect(User.getUser(3)).toEqual({user_name: "Name",email: "email",password: "password",id: 3});
+       expect(User.getUser(3)).toEqual({user_name: "Name",email: "email",password: "password",id: 3,isAdmin: false});
     //    console.log('User.getUser(2)');
     //    console.log(User.getUser(2));
     }); 
@@ -61,8 +61,8 @@ describe('The User Object ',()=>{
 });
 describe('The User Object ',()=>{
     it('is read to return all users by an ADMIN user',()=>{
-       expect(User.getUsers()).toEqual([ { user_name: 'Name', email: 'email', password: 'password', id: 1 },
-       { user_name: 'Name', email: 'email', password: 'password', id: 2 },
-       { user_name: 'Name', email: 'email', password: 'password', id: 3 } ]);
+       expect(User.getUsers()).toEqual([ { user_name: 'Name', email: 'email', password: 'password', id: 1,isAdmin: true },
+       { user_name: 'Name', email: 'email', password: 'password', id: 2,isAdmin: false },
+       { user_name: 'Name', email: 'email', password: 'password', id: 3,isAdmin: false } ]);
     }); 
 });
