@@ -74,6 +74,11 @@ User.prototype.deleteUser = function (id){
         return 'You do not have enough privileges';
     }
 }
+//Object prototype method to delete all users
+User.prototype.deleteAllUser = function (){
+    return db.users.splice(0,db.users.length)
+}
+
 
 
 // User('Name','email','password');
