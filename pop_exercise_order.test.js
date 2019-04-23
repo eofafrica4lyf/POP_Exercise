@@ -33,3 +33,17 @@ describe('(Read all the orders(*))(***)The Admin user ',()=>{
         expect(userII.getAllOrders()).toEqual('You must be an Admin!');
     }); 
 });
+//Read one order by it\'s ID(*)
+describe('(Read all the orders(*))(***)The Admin user ',()=>{
+    it('reads one order by it\'s ID',()=>{
+        let firstOrder = userI.createOrder(['peaches,apples']);
+        console.log(db.orders[3] );
+        expect(userI.getOrder(3).products).toEqual(['peaches','apples']);
+
+    }); 
+    // it('(makes sure it is an Admin user)reads one order by it\'s ID',()=>{
+    //     let userII = new User('Emmanuel','aboderinemmanuel@gmail.com','qwerty');
+    //     let firstOrder = userII.createOrder(['peaches']);
+    //     expect(userII.getAllOrders()).toEqual('You must be an Admin!');
+    // }); 
+});
