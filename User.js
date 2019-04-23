@@ -109,8 +109,13 @@ User.prototype.getAllOrders = function(){
 }
 //Object prototype method that allows an Admin user to read a particular using it's ID
 User.prototype.getOrder = function(ID){
-    if (this.isAdmin === true){
-        return db.orders[ID];
+    if (this.isAdmin === true ){
+        if(db.orders.length >= ID){
+            return db.orders[ID];
+        }else{
+            return 'Such record does not exist!';
+        }
+        
     }else{
         return 'You must be an Admin!';
     }

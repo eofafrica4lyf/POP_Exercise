@@ -48,6 +48,6 @@ describe('(Read all the orders(*))(***)The Admin user ',()=>{
     }); 
     it('(reads one order by it\'s ID and if the ID doesn\'t return an object, it returns a failure message',()=>{
         console.log(db.orders);
-        expect(userI.getOrder(14)).toEqual('Such record does not exist!');
+        expect(userI.getOrder(6)).toEqual('Such record does not exist!');
     }); 
 });
