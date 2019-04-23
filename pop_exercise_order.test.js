@@ -19,3 +19,11 @@ describe('(Create a new Order)(***)The Order Object ',()=>{
         expect(firstOrder.products).toEqual(expect.arrayContaining(['peaches']));
     }); 
 });
+//Read all the orders(*)
+describe('(Read all the orders(*))(***)The Admin user ',()=>{
+    it('reads all the order items/objects',()=>{
+        let firstOrder = userI.createOrder(['peaches']);
+        console.log(db.orders.length);
+        expect(userI.getAllOrders().length).toEqual(1);
+    }); 
+});

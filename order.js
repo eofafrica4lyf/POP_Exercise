@@ -16,5 +16,12 @@ let Order = function(user_ID,products){
 }
 // Order.prototype = Object.create(User.prototype);
 Order.prototype = User.prototype;
+Order.prototype = Order;
+Order.prototype.constructor = Order;
+
+//Read all the orders(*)
+Order.prototype.getOrders = function(){
+    return db.orders;
+}
 
 module.exports = Order;
