@@ -55,8 +55,7 @@ describe('(Read all the orders(*))(***)The Admin user ',()=>{
 describe('Update order details(*)(***)The Admin user ',()=>{
     it('can update the products',()=>{
         console.log(db.orders);
-        db.order;
-        // userI.updateOrderProducts(['mangoes']);
-        expect(userI.getOrder(userI.id).products).toEqual(['mangoes']);
-    })
-})
+        // userI.updateOrderProducts(3,['mangoes']);
+        expect(userI.updateOrderProducts(3,['mangoes']).products).toEqual(['mangoes']);
+    });
+});

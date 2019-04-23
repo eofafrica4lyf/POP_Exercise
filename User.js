@@ -120,6 +120,17 @@ User.prototype.getOrder = function(ID){
         return 'You must be an Admin!';
     }
 }
+//Object prototype method that an Admin user to update the products ordered in a particular order
+User.prototype.updateOrderProducts = function(orderID, arr){
+    let updatedProduct = [];
+    for(var i=0;i<db.orders.length;i++){
+        if(db.orders[i].order_ID === orderID){
+            db.orders[i].products =  arr;
+            updatedProduct = db.orders[i];
+        }
+    }
+    return updatedProduct;
+}
 
 // User('Name','email','password');
 // User();
