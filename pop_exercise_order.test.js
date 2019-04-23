@@ -36,8 +36,8 @@ describe('(Read all the orders(*))(***)The Admin user ',()=>{
 //Read one order by it\'s ID(*)
 describe('(Read all the orders(*))(***)The Admin user ',()=>{
     it('reads one order by it\'s ID',()=>{
-        let firstOrder = userI.createOrder(['peaches,apples']);
-        console.log(db.orders[3] );
+        let firstOrder = userI.createOrder(['peaches','apples']);
+        console.log(db.orders[3].products);
         expect(userI.getOrder(3).products).toEqual(['peaches','apples']);
 
     }); 

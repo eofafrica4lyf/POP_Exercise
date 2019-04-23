@@ -106,7 +106,10 @@ User.prototype.getAllOrders = function(){
     }else{
         return 'You must be an Admin!';
     }
-   
+}
+//Object prototype method that allows an Admin user to read a particular using it's ID
+User.prototype.getOrder = function(ID){
+        return db.orders[ID];
 }
 
 // User('Name','email','password');
