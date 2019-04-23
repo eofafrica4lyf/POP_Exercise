@@ -91,12 +91,18 @@ User.prototype.searchForUser  = function (userName){
     }
     return "User not found!";
 }
+//***************************************************
+//Order-related methods
+//***************************************************
 //Object prototype method to create a new order
 User.prototype.createOrder = function(products){
     this.user_ID = this.id;
     return new Order(this.user_ID,products);
 }
-
+//Object prototype method that allows an Admin user to read all the orders
+User.prototype.getAllOrders = function(){
+    return db.orders;
+}
 
 // User('Name','email','password');
 // User();
