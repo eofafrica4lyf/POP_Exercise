@@ -1,3 +1,4 @@
+const Order = require('./Order');
 const db = require('./db');
 
 global.counter = 1;
@@ -89,6 +90,10 @@ User.prototype.searchForUser  = function (userName){
         }
     }
 }
+
+
+
+
 // User('Name','email','password');
 // User();
 // console.log(db);

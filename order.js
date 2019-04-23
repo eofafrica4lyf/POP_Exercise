@@ -19,7 +19,11 @@ let Order = function(user_ID,timeOfOrder,dateOfOrder,products){
 // Order.prototype = Object.create(User.prototype);
 Order.prototype = User.prototype;
 
-let order = new Order(1,'12:04','12-02-2019',['peaches']);
-console.log(order.hasOwnProperty('user_ID'));
-console.log(order instanceof User);
-// module.exports = Order;
+// let order = new Order(1,'12:04','12-02-2019',['peaches']);
+// console.log(order.hasOwnProperty('user_ID'));
+// console.log(Order instanceof User);
+// console.log(order);
+// console.log(db);
+
+
+module.exports = Order;
