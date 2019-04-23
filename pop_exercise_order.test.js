@@ -10,7 +10,7 @@ var ord1 = {user_ID:1,
 let userI = new Admin('Emmanuel','aboderinemmanuel@gmail.com','qwerty');
 
 // console.log(userI.createOrder(1,'12:04','12-02-2019',['peaches']));
-console.log(db);
+// console.log(db);
 
 //Create a new Order
 describe('(Create a new Order)(***)The Order Object ',()=>{
@@ -24,13 +24,12 @@ describe('(Create a new Order)(***)The Order Object ',()=>{
 describe('(Read all the orders(*))(***)The Admin user ',()=>{
     it('reads all the order items/objects',()=>{
         let firstOrder = userI.createOrder(['peaches']);
-        console.log(db.orders.length);
         expect(userI.getAllOrders().length).toEqual(2);
+        
     }); 
     it('(makes sure it is an Admin user)reads all the order items/objects',()=>{
         let userII = new User('Emmanuel','aboderinemmanuel@gmail.com','qwerty');
         let firstOrder = userII.createOrder(['peaches']);
-        console.log(db.orders.length);
-        expect(userI.getAllOrders().length).toEqual('You must be an Admin!');
+        expect(userII.getAllOrders()).toEqual('You must be an Admin!');
     }); 
 });

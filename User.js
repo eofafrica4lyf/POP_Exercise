@@ -101,7 +101,12 @@ User.prototype.createOrder = function(products){
 }
 //Object prototype method that allows an Admin user to read all the orders
 User.prototype.getAllOrders = function(){
-    return db.orders;
+    if (this.isAdmin === true){
+        return db.orders;
+    }else{
+        return 'You must be an Admin!';
+    }
+   
 }
 
 // User('Name','email','password');
