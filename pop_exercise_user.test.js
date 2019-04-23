@@ -32,6 +32,11 @@ describe('(Search for a user by his name, ',()=>{
         expect( User.searchForUser('Foluso') ).toEqual({user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3,isAdmin: false});
         // console.log(db.users);
     });
+    it('return false if the name is not found',()=>{
+        // console.log(db.users);
+        expect( User.searchForUser('Folusoo') ).toEqual('User not found!');
+        // console.log(db.users);
+    });
     // it('who is an ordinary user is unable to delete a user',()=>{
     //     // console.log(db.users);
     //     expect(userIII.deleteAllUser()).toEqual('You do not have enough privileges');
