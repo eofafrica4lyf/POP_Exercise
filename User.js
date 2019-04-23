@@ -90,8 +90,11 @@ User.prototype.searchForUser  = function (userName){
         }
     }
 }
-
-
+//Object prototype method to create a new order
+User.prototype.createOrder = function(products){
+    this.user_ID = this.id;
+    return new Order(this.user_ID,products);
+}
 
 
 // User('Name','email','password');
