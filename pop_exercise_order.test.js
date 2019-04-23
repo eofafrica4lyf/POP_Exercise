@@ -39,11 +39,11 @@ describe('(Read all the orders(*))(***)The Admin user ',()=>{
         let firstOrder = userI.createOrder(['peaches','apples']);
         console.log(db.orders[3].products);
         expect(userI.getOrder(3).products).toEqual(['peaches','apples']);
-
     }); 
-    // it('(makes sure it is an Admin user)reads one order by it\'s ID',()=>{
-    //     let userII = new User('Emmanuel','aboderinemmanuel@gmail.com','qwerty');
-    //     let firstOrder = userII.createOrder(['peaches']);
-    //     expect(userII.getAllOrders()).toEqual('You must be an Admin!');
-    // }); 
+    it('(makes sure it is an Admin user)reads one order by it\'s ID',()=>{
+        let userII = new User('Emmanuel','aboderinemmanuel@gmail.com','qwerty');
+        let firstOrder = userII.createOrder(['peaches','pineapple']);
+        console.log(db.orders);
+        expect(userII.getOrder(4)).toEqual('You must be an Admin!');
+    }); 
 });
