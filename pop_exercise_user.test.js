@@ -1,13 +1,14 @@
-const User = require('./pop_exercise');
+const User = require('./User');
+const Admin = require('./Admin');
 const db = require('./db');
 
-var ex1 = {user_name: "Emmanuel",email: "aboderinemmanuel@gmail.com",password: "qwerty",id: 1,isAdmin: true};
-var ex2 = {user_name: "Maranatha",email: "aboderinmaranatha@gmail.com",password: "qwertyu",id: 2,isAdmin: false};
-var ex3 = {user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3,isAdmin: false};
+var ex1 = {user_name: "Emmanuel",email: "aboderinemmanuel@gmail.com",password: "qwerty",id: 1, isAdmin: true};
+var ex2 = {user_name: "Maranatha",email: "aboderinmaranatha@gmail.com",password: "qwertyu",id: 2, isAdmin: false};
+var ex3 = {user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3, isAdmin: false};
 
-let userI = new User('Emmanuel','aboderinemmanuel@gmail.com','qwerty', true);
-        let userII = new User('Maranatha','aboderinmaranatha@gmail.com','qwertyu', false);
-        let userIII = new User('Foluso','aboderinfoluso@gmail.com','qwertyui', false);
+        let userI = new Admin('Emmanuel','aboderinemmanuel@gmail.com','qwerty');
+        let userII = new User('Maranatha','aboderinmaranatha@gmail.com','qwertyu');
+        let userIII = new User('Foluso','aboderinfoluso@gmail.com','qwertyui');
 //Create a new User
 describe('(Create a new User)(***)The User Object ',()=>{
     it('creates new users with properties and auto-increments the ID',()=>{

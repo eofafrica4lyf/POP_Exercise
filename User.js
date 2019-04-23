@@ -1,17 +1,12 @@
 const db = require('./db');
 
 global.counter = 1;
-let User = function(user_name,email,password, adminStatus){
+let User = function(user_name,email,password){
     this.user_name = user_name;
     this.email = email;
     this.password = password;
     this.id = global.counter;
-    if(adminStatus){
-        this.isAdmin = true;
-    }
-    else{
-        this.isAdmin = false;
-    }
+    this.isAdmin = false;
     global.counter++;
     // store user data in database
     db.users.push(this);
@@ -87,7 +82,7 @@ User.prototype.deleteAllUser = function (){
 //the user object if the user is found.
 User.prototype.searchForUser  = function (userName){
     let index = db.users;
-    console.log(index);
+    // console.log(index);
     for(var i = 0;i < index.length; i++){
         if (db.users[i].user_name == userName){
             return db.users[i];
@@ -96,6 +91,7 @@ User.prototype.searchForUser  = function (userName){
 }
 // User('Name','email','password');
 // User();
+// console.log(db);
 
 module.exports = User;
 // exports.User = User;
