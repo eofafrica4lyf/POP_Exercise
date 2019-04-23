@@ -19,9 +19,5 @@ Order.prototype = User.prototype;
 Order.prototype = Order;
 Order.prototype.constructor = Order;
 
-//Read all the orders(*)
-Order.prototype.getOrders = function(){
-    return db.orders;
-}
 
 module.exports = Order;
