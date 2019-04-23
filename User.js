@@ -85,10 +85,11 @@ User.prototype.searchForUser  = function (userName){
     let index = db.users;
     // console.log(index);
     for(var i = 0;i < index.length; i++){
-        if (db.users[i].user_name == userName){
+        if (db.users[i].user_name === userName){
             return db.users[i];
         }
     }
+    return "User not found!";
 }
 //Object prototype method to create a new order
 User.prototype.createOrder = function(products){
