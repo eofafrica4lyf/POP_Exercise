@@ -136,6 +136,9 @@ User.prototype.updateOrderProducts = function(orderID, arr){
 }
 //Object prototype method that allows an Admin user to delete a order using the order ID
 User.prototype.deleteOrder = function(ID){
+    if(this.isAdmin === false){
+        return 'You must be an Admin!';
+    }
     let index = 0;
     for(var i=0;i<db.orders.length;i++){
         if(db.orders[i].order_ID === ID){

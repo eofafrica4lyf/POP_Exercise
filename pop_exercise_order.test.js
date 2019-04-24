@@ -79,7 +79,8 @@ describe('Delete an order(*)(***)The Admin user ',()=>{
         expect(db.orders.length).toEqual(olength - 1);
     });
     it('(make sure it an admin)can delete one order when provided the order ID',()=>{
-        expect(userI.deleteOrder(2)).toEqual('You must be an Admin!');
+        let userIV = new User('Bash','mark.bashir@gmail.com','qwesfrty');
+        expect(userIV.deleteOrder(2)).toEqual('You must be an Admin!');
     });
 });
 //Delete all order(*)
