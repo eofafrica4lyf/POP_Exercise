@@ -69,7 +69,7 @@ describe('Update order details(*)(***)The Admin user ',()=>{
     });
 });
 //Delete one order(*)
-describe('Delete on order(*)(***)The Admin user ',()=>{
+describe('Delete an order(*)(***)The Admin user ',()=>{
     it('can delete one order when provided the order ID',()=>{
         olength = db.orders.length;
         // console.log(olength);
@@ -77,6 +77,14 @@ describe('Delete on order(*)(***)The Admin user ',()=>{
         userI.deleteOrder(6); 
         // console.log(db.orders);
         expect(db.orders.length).toEqual(olength - 1);
-        
+    });
+    it('(make sure it an admin)can delete one order when provided the order ID',()=>{
+        expect(userI.deleteOrder(2)).toEqual('You must be an Admin!');
     });
 });
+//Delete all order(*)
+// describe('Delete all orders(*)(***)The Admin user ',()=>{
+//     it('is able to delete all orders',()=>{
+
+//     })
+// })
