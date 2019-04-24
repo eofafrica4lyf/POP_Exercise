@@ -150,7 +150,7 @@ User.prototype.deleteOrder = function(ID){
 }
 //Object prototype method that allows an Admin user to delete all orders
 User.prototype.deleteAllOrders = function(){
-    db.orders = [];
+    return db.orders = [];
 }
 
 

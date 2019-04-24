@@ -78,7 +78,7 @@ describe('Delete an order(*)(***)The Admin user ',()=>{
         // console.log(db.orders);
         expect(db.orders.length).toEqual(olength - 1);
     });
-    it('(make sure it an admin)can delete one order when provided the order ID',()=>{
+    it('(make sure it is an admin)can delete one order when provided the order ID',()=>{
         let userIV = new User('Bash','mark.bashir@gmail.com','qwesfrty');
         expect(userIV.deleteOrder(2)).toEqual('You must be an Admin!');
     });
@@ -90,5 +90,11 @@ describe('Delete all orders(*)(***)The Admin user ',()=>{
         userI.deleteAllOrders();
         // console.log(db.orders);
         expect(db.orders).toEqual([]);
+    });
+    it('(make sure it is an admin)is able to delete all orders',()=>{
+        let userIV = new User('Bash','mark.bashir@gmail.com','qwesfrty');
+        
+        // console.log(db.orders);
+        expect(userIV.deleteAllOrders()).toEqual('You must be an Admin!');
     });
 });
