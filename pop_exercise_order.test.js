@@ -68,3 +68,11 @@ describe('Update order details(*)(***)The Admin user ',()=>{
         expect(userIV.updateOrderProducts(6,['mangoes'])).toEqual('You must be an Admin!');
     });
 });
+//Delete one order(*)
+describe('Delete on order(*)(***)The Admin user ',()=>{
+    it('can delete one order when provided the order ID',()=>{
+        length = db.orders.length;
+        userI.deleteOrder(6);
+        expect(db.orders.length).toEqual(length - 1);
+    });
+});
