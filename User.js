@@ -148,6 +148,11 @@ User.prototype.deleteOrder = function(ID){
     db.orders.splice(index,1);
     return db.orders;
 }
+//Object prototype method that allows an Admin user to delete all orders
+User.prototype.deleteAllOrders = function(){
+    db.orders = [];
+}
+
 
 // User('Name','email','password');
 // User();
