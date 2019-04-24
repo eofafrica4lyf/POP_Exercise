@@ -26,7 +26,11 @@ User.prototype.getUser = function(ID){
             return 'Invalid ID parameter was passed';
         }
         else{
-            return db.users[ID-1];
+            for(var i=0;i<db.users.length;i++){
+                if(db.users[i].id === ID){
+                    return db.users[i];
+                }
+            }
         }   
     }
     
@@ -43,29 +47,39 @@ User.prototype.getUsers = function(){
 // Object prototype method to update user_name
 User.prototype.updateUserName = function(otherName){
     //Update Database first
-    db.users[this.id-1].user_name = otherName;
-    // Update the object
-    return this.user_name = otherName;
+    let r = 0;
+    for(var i = 0;i<db.users.length;i++){
+        db.users[i].user_name = (db.users[i].id === this.id)? otherName : db.users[i].user_name;
+        r=i;
+        
+    }return db.users[r].user_name;
 }
 // Object prototype method to update user email
 User.prototype.updateEmail = function(otherEmail){
     //Update Database first
-    db.users[this.id-1].email = otherEmail;
-    // Update the object
-    return this.email = otherEmail;
+    let r = 0;
+    for(var i = 0;i<db.users.length;i++){
+        db.users[i].email = (db.users[i].id === this.id)? otherEmail : db.users[i].email;
+        r=i;
+    }return db.users[r].email;
 }
 // Object prototype method to update user password
 User.prototype.updatePassword = function(otherPassword){
     //Update Database first
-    db.users[this.id-1].password = otherPassword;
-    // Update the object
-    return this.password = otherPassword;
+    let r = 0;
+    for(var i = 0;i<db.users.length;i++){
+        db.users[i].password = (db.users[i].id === this.id)? otherPassword : db.users[i].password;
+        r=i;
+    }return db.users[r].password;
 }
 //Object prototype method to delete single user(by their ID)
 User.prototype.deleteUser = function (id){
-    // db.users.splice(id-1,1);
     if(this.isAdmin){
-        return db.users.splice(id-1,1);
+        let r = -1;
+        for(var i = 0;i<db.users.length;i++){
+            r = (db.users[i].id === id)? i : r;
+        }
+        return db.users.splice(r,1); 
     }else{
         return 'You do not have enough privileges';
     }
@@ -97,8 +111,8 @@ User.prototype.searchForUser  = function (userName){
 //***************************************************
 //Object prototype method to create a new order
 User.prototype.createOrder = function(products){
-    this.user_ID = this.id;
-    return new Order(this.user_ID,products);
+    let user_ID = this.id;
+    return new Order(user_ID,products);
 }
 //Object prototype method that allows an Admin user to read all the orders
 User.prototype.getAllOrders = function(){
@@ -109,14 +123,18 @@ User.prototype.getAllOrders = function(){
     }
 }
 //Object prototype method that allows an Admin user to read a particular using it's ID
-User.prototype.getOrder = function(ID){
+User.prototype.getOrder = function(orderI){
     if (this.isAdmin === true ){
-        if(db.orders.length >= ID){
-            return db.orders[ID];
-        }else{
-            return 'Such record does not exist!';
+        let order = [];
+        for(var i=0;i<db.orders.length;i++){
+                order = (db.orders[i].order_ID === orderI ) ? db.orders[i].products : order ;
+                if(order.length === 0){
+                    order = order;
+                }else{
+                    return order;
+                }
         }
-        
+        return 'Such record does not exist!';
     }else{
         return 'You must be an Admin!';
     }

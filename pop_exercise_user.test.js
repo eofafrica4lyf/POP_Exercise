@@ -99,10 +99,19 @@ describe('(Read all users (*))(***)The database ',()=>{
 describe('(Update the details of a user)(***)The User ',()=>{
     it('is able to update his user_name',()=>{
         // console.log(db.users[userI.id-1].user_name);
+        userI.user_name;
         userI.updateUserName('Another Name');
-        expect(db.users[userI.id-1].user_name).toBe('Another Name');
+        expect(userI.user_name).toBe('Another Name');
         // console.log(db.users[userI.id-1].user_name);
     }); 
+    it('is not able to update the user name if it does not exist',()=>{
+        // console.log(db.users[userI.id-1].user_name);
+        userI.user_name;
+        userI.updateUserName('Another Name');
+        expect(userI.user_name).toBe('Another Name');
+        // console.log(db.users[userI.id-1].user_name);
+    }); 
+
     it('is able to update his email',()=>{
         // console.log(db.users[userI.id-1].email);
         userI.updateEmail('AnotherEmail');

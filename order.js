@@ -12,7 +12,7 @@ let Order = function(user_ID,products){
     this.order_ID = global.orderCounter;
     global.orderCounter++;
     //store order data in database
-    db.orders.push(this);
+    db.orders.push({user_ID: this.user_ID,timeOfOrder: this.timeOfOrder,dateOfOrder: this.dateOfOrder,products: this.products,order_ID: this.order_ID});
 }
 // Order.prototype = Object.create(User.prototype);
 Order.prototype = User.prototype;

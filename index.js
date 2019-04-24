@@ -16,7 +16,7 @@ console.log(db);
 //Read a single user by the ID
 console.log('\n########Read a single user by the ID\n\n');
 console.log(Mark.getUser(1));//By Admin
-console.log(Ben.getUser(1));//By ordinary user
+console.log(Ben.getUser(3));//By ordinary user
 
 //Read all users(*)
 console.log('\n########Read all users\n\n');
@@ -52,6 +52,7 @@ console.log('\n########Search for a user\n\n');
 
 console.log(David.searchForUser('Mark'));//Admin user searches for a username
 console.log(Mark);//Search for a deleted username !!!!!!Big issue here
+console.log(db);
 console.log(Goliath.searchForUser('David'));//Ordinary user search for a username
 
 
@@ -82,7 +83,7 @@ console.log('\n########Delete one order\n\n');
 console.log(David.getAllOrders());//Admin reads all orders.
 console.log(David.deleteOrder(1));//Admin deletes an order
 console.log(David.getAllOrders());//Admin reads all orders again to check that order is deleted.
-console.log(Goliath.deleteOrder(1));//Admin deletes an order
+console.log(Goliath.deleteOrder(2));//Admin deletes an order
 console.log(David.getAllOrders());//Admin reads all orders again to check that ordinary user was not able to delete the order
 
 //Delete all orders(*)
