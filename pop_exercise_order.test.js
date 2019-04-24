@@ -84,8 +84,9 @@ describe('Delete an order(*)(***)The Admin user ',()=>{
     });
 });
 //Delete all order(*)
-// describe('Delete all orders(*)(***)The Admin user ',()=>{
-//     it('is able to delete all orders',()=>{
-
-//     })
-// })
+describe('Delete all orders(*)(***)The Admin user ',()=>{
+    it('is able to delete all orders',()=>{
+        userI.deleteAllOrders()
+        expect(db.orders).toEqual([]);
+    })
+})
