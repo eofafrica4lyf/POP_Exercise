@@ -54,16 +54,16 @@ describe('(Read all the orders(*))(***)The Admin user ',()=>{
 //Update order details(*)
 describe('Update order details(*)(***)The Admin user ',()=>{
     it('can update the products',()=>{
-        console.log(db.orders);
+        // console.log(db.orders);
         // userI.updateOrderProducts(3,['mangoes']);
         expect(userI.updateOrderProducts(3,['mangoes']).products).toEqual(['mangoes']);
     });
     it('can update the products;if he\'s not an Admin he can\'t carry out the update',()=>{
         let userIV = new User('Bash','mark.bashir@gmail.com','qwesfrty');
         let firstOrder = userIV.createOrder(['peaches','strawberry']);
-        console.log(db);
-        console.log(firstOrder);
-        console.log(userIV.products);
+        // console.log(db);
+        // console.log(firstOrder);
+        // console.log(userIV.products);
         // userI.updateOrderProducts(3,['mangoes']);
         expect(userIV.updateOrderProducts(6,['mangoes'])).toEqual('You must be an Admin!');
     });
@@ -71,8 +71,12 @@ describe('Update order details(*)(***)The Admin user ',()=>{
 //Delete one order(*)
 describe('Delete on order(*)(***)The Admin user ',()=>{
     it('can delete one order when provided the order ID',()=>{
-        length = db.orders.length;
-        userI.deleteOrder(6);
-        expect(db.orders.length).toEqual(length - 1);
+        olength = db.orders.length;
+        // console.log(olength);
+        // console.log(db.orders);
+        userI.deleteOrder(6); 
+        // console.log(db.orders);
+        expect(db.orders.length).toEqual(olength - 1);
+        
     });
 });

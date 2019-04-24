@@ -120,7 +120,7 @@ User.prototype.getOrder = function(ID){
         return 'You must be an Admin!';
     }
 }
-//Object prototype method that an Admin user to update the products ordered in a particular order
+//Object prototype method that allows an Admin user to update the products ordered in a particular order
 User.prototype.updateOrderProducts = function(orderID, arr){
     if(this.isAdmin === false){
         return 'You must be an Admin!';
@@ -133,6 +133,17 @@ User.prototype.updateOrderProducts = function(orderID, arr){
         }
     }
     return updatedProduct;
+}
+//Object prototype method that allows an Admin user to delete a order using the order ID
+User.prototype.deleteOrder = function(ID){
+    let index = 0;
+    for(var i=0;i<db.orders.length;i++){
+        if(db.orders[i].order_ID === ID){
+            index = i;
+        }
+    }
+    db.orders.splice(index,1);
+    return db.orders;
 }
 
 // User('Name','email','password');
