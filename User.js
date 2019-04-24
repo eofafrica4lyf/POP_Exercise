@@ -73,7 +73,8 @@ User.prototype.deleteUser = function (id){
 //Object prototype method to delete all users
 User.prototype.deleteAllUser = function (){
     if(this.isAdmin){
-        return db.users.splice(0,db.users.length);
+        db.users = [];
+        return db.users;
     }else{
         return 'You do not have enough privileges';
     }
@@ -156,6 +157,8 @@ User.prototype.deleteAllOrders = function(){
     return db.orders = [];
 }
 
+// let Mark = new User('Mark', 'mquadrant@gmail.com','qwerty');
+// console.log(Mark);
 
 // User('Name','email','password');
 // User();
