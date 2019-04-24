@@ -122,7 +122,9 @@ User.prototype.getOrder = function(ID){
 }
 //Object prototype method that an Admin user to update the products ordered in a particular order
 User.prototype.updateOrderProducts = function(orderID, arr){
-    
+    if(this.isAdmin === false){
+        return 'You must be an Admin!';
+    }
     let updatedProduct = [];
     for(var i=0;i<db.orders.length;i++){
         if(db.orders[i].order_ID === orderID){
