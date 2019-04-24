@@ -58,4 +58,13 @@ describe('Update order details(*)(***)The Admin user ',()=>{
         // userI.updateOrderProducts(3,['mangoes']);
         expect(userI.updateOrderProducts(3,['mangoes']).products).toEqual(['mangoes']);
     });
+    it('can update the products;if he\'s not an Admin he can\'t carry out the update',()=>{
+        let userIV = new User('Bash','mark.bashir@gmail.com','qwesfrty');
+        let firstOrder = userIV.createOrder(['peaches','strawberry']);
+        console.log(db);
+        console.log(firstOrder);
+        console.log(userIV.products);
+        // userI.updateOrderProducts(3,['mangoes']);
+        expect(userIV.updateOrderProducts(6,['mangoes'])).toEqual('You must be an Admin!');
+    });
 });

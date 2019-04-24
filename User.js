@@ -10,7 +10,7 @@ let User = function(user_name,email,password){
     this.isAdmin = false;
     global.counter++;
     // store user data in database
-    db.users.push(this);
+    db.users.push(this); 
 }
 User.prototype = User;
 User.prototype.id = this.id + 1;
@@ -122,6 +122,7 @@ User.prototype.getOrder = function(ID){
 }
 //Object prototype method that an Admin user to update the products ordered in a particular order
 User.prototype.updateOrderProducts = function(orderID, arr){
+    
     let updatedProduct = [];
     for(var i=0;i<db.orders.length;i++){
         if(db.orders[i].order_ID === orderID){
