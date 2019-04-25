@@ -12,8 +12,8 @@ let User = function(user_name,email,password){
     // store user data in database
     db.users.push(this); 
 }
-User.prototype = User;
-User.prototype.id = this.id + 1;
+// User.prototype = User;
+// User.prototype.id = this.id + 1;
 // 
 User.prototype.getUser = function(ID){
     if(arguments.length > 1){

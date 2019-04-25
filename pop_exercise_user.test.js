@@ -29,12 +29,12 @@ describe('(Create a new User)(***)The User Object ',()=>{
 describe('(Search for a user by his name, ',()=>{
     it('return the user object if the name is found',()=>{
         // console.log(db.users);
-        expect( User.searchForUser('Foluso') ).toEqual({user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3,isAdmin: false});
+        expect( userI.searchForUser('Foluso') ).toEqual({user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3,isAdmin: false});
         // console.log(db.users);
     });
     it('return false if the name is not found',()=>{
         // console.log(db.users);
-        expect( User.searchForUser('Folusoo') ).toEqual('User not found!');
+        expect( userI.searchForUser('Folusoo') ).toEqual('User not found!');
         // console.log(db.users);
     });
     // it('who is an ordinary user is unable to delete a user',()=>{
@@ -57,29 +57,29 @@ describe('(Confirm database write)(***)The User Object ',()=>{
 //Read a single user by his ID
 describe('(Read a single user by his ID)(***)The database ',()=>{
     it('returns the info of a single user using the User\'s ID',()=>{
-       expect(User.getUser(1)).toEqual({user_name: "Emmanuel",email: "aboderinemmanuel@gmail.com",password: "qwerty",id: 1,isAdmin: true});
+       expect(userI.getUser(1)).toEqual({user_name: "Emmanuel",email: "aboderinemmanuel@gmail.com",password: "qwerty",id: 1,isAdmin: true});
     //    console.log('User.getUser(1)');
     //    console.log(User.getUser(1));
     }); 
     it('returns the info of a single user using the User\'s ID',()=>{
-       expect(User.getUser(3)).toEqual({user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3,isAdmin: false});
+       expect(userI.getUser(3)).toEqual({user_name: "Foluso",email: "aboderinfoluso@gmail.com",password: "qwertyui",id: 3,isAdmin: false});
     //    console.log('User.getUser(2)');
     //    console.log(User.getUser(2));
     }); 
     it('returns an error when an invalid parameter(string) is passed in order to retrieve a user\'info',()=>{
-       expect(User.getUser('3')).toEqual('Invalid ID parameter was passed');
+       expect(userI.getUser('3')).toEqual('Invalid ID parameter was passed');
     }); 
     it('returns an error when an invalid parameter(NaN) is passed in order to retrieve a user\'info',()=>{
-       expect(User.getUser(NaN)).toEqual('Invalid ID parameter was passed');
+       expect(userI.getUser(NaN)).toEqual('Invalid ID parameter was passed');
     }); 
     it('returns an error when an invalid parameter(Infinity) is passed in order to retrieve a user\'info',()=>{
-       expect(User.getUser(Infinity)).toEqual('Invalid ID parameter was passed');
+       expect(userI.getUser(Infinity)).toEqual('Invalid ID parameter was passed');
     }); 
     it('returns an error when an invalid parameter(-Infinity) is passed in order to retrieve a user\'info',()=>{
-       expect(User.getUser(-Infinity)).toEqual('Invalid ID parameter was passed');
+       expect(userI.getUser(-Infinity)).toEqual('Invalid ID parameter was passed');
     }); 
     it('returns an error when an invalid number of parameters are passed in order to retrieve a user\'info',()=>{
-       expect(User.getUser(2,3)).toEqual('Invalid number of parameters was passed');
+       expect(userI.getUser(2,3)).toEqual('Invalid number of parameters was passed');
     }); 
 });
 //Read all users (*)

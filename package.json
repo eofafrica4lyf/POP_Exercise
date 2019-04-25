@@ -4,7 +4,7 @@
   "description": "### Exercise to test and consolidate the understanding of Prototypal Oriented Programming.",
   "main": "pop_exercise.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
